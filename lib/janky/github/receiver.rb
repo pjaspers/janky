@@ -42,7 +42,8 @@ module Janky
 
       def valid_signature?
         warn "REQUEST ENV:"
-        warn @request.env.inspect
+        # warn @request.env.inspect
+        data
         # Temporarily avoiding signature validation.
         return true
 
@@ -53,6 +54,9 @@ module Janky
       end
 
       def payload
+        warn "##################################################\n\n\n"
+        warn data
+        warn "\n\n\n##################################################"
         @payload ||= GitHub::Payload.parse(data)
       end
 
