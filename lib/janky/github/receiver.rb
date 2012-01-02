@@ -65,9 +65,9 @@ module Janky
       end
 
       def data!
-        if @request.content_type != "application/json"
-          return Rack::Response.new("Invalid Content-Type", 400).finish
-        end
+        # if @request.content_type != "application/json"
+        #   return Rack::Response.new("Invalid Content-Type", 400).finish
+        # end
 
         body = ""
         @request.body.each { |chunk| body << chunk }
