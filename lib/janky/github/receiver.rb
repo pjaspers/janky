@@ -72,6 +72,12 @@ module Janky
         body = ""
         @request.body.each { |chunk| body << chunk }
         body
+
+        # If legacy web hooks are used we're getting a url encoded json
+        # body back. This will trip up the parsing. So fixing it here
+        if body.match /^payload/
+          body = CGI::unescape(body.gsub(/^payload=/, ""))
+        end
       end
     end
   end
