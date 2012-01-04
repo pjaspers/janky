@@ -65,6 +65,11 @@ module Janky
       end
 
       def data!
+        warn "##REQUEST CONTENT TYPE############################\n\n\n"
+        warn @request.content_type
+        warn "##REQUEST ENV############################\n\n\n"
+        warn @request.env.inspect
+        warn "\n\n\n##################################################"
         # if @request.content_type != "application/json"
         #   return Rack::Response.new("Invalid Content-Type", 400).finish
         # end
