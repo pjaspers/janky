@@ -17,7 +17,7 @@ module Janky
 
       def call(env)
         warn "#####################################################\n"
-        warn env.inspect
+        raise env.inspect
         warn "#####################################################\n"
         dup.call!(env)
       end
