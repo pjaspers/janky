@@ -21,6 +21,10 @@ module Janky
       def call!(env)
         @request = Rack::Request.new(env)
 
+        warn "#####################################################\n"
+        warn data.inspect
+        warn "#####################################################\n"
+
         if !valid_content_type?
           return Rack::Response.new("Invalid Content-Type", 400).finish
         end
