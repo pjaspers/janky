@@ -11,10 +11,14 @@ module Janky
     # [1]: http://help.github.com/post-receive-hooks/
     class Receiver
       def initialize(secret)
+        warn "initted with secret"
         @secret = secret
       end
 
       def call(env)
+        warn "#####################################################\n"
+        warn env.inspect
+        warn "#####################################################\n"
         dup.call!(env)
       end
 
