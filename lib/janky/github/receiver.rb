@@ -16,22 +16,12 @@ module Janky
       end
 
       def call(env)
-        warn "#####################################################\n"
-        raise env.inspect
-        warn "#####################################################\n"
         dup.call!(env)
       end
 
       def call!(env)
-        warn "#####################################################\n"
-        warn env.inspect
-        warn "#####################################################\n"
-
         @request = Rack::Request.new(env)
-
-        warn "#####################################################\n"
-        warn data.inspect
-        warn "#####################################################\n"
+        raise Error, env.inspect
 
         if !valid_content_type?
           return Rack::Response.new("Invalid Content-Type", 400).finish

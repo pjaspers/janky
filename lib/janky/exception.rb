@@ -43,6 +43,7 @@ module Janky
         )
         @app.call(env)
       rescue Object => boom
+        warn "123456"
         Exception.report(boom)
         raise
       end
